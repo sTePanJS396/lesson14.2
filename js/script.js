@@ -217,6 +217,23 @@ AppData.prototype.reset =  function () {
     });
     periodSelect.value = 1;
     periodAmout.textContent = '1';
+    for (let i = expensesItems.length - 1; i > 0; i--) {
+            expensesItems[0].parentNode.removeChild(expensesItems[i]);
+        }
+        for (let i = incomeItems.length - 1; i > 0; i--) {
+            incomeItems[0].parentNode.removeChild(incomeItems[i]);
+        }
+
+    buttonTagOne.style.display = '';
+    buttonTagTwo.style.display = '';
+
+    this.incomeMonth = 0;
+    this.percentDeposit =  0;
+    this.moneyDeposit =  0;
+    this.budget =  0;
+    this.budgetMonth =  0;
+    this.expensesMonth =  0;
+    this.periodSelects =  0;
 };
 
 AppData.prototype.eventListeners = function () {
