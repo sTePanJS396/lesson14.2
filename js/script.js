@@ -208,32 +208,43 @@ AppData.prototype.blocking =  function () {
 
 AppData.prototype.reset =  function () {
     inputValueText.forEach(item => {
-        item.value = '';
-    });
-    buttonCancel.style.display = 'none';
-    button.style.display = 'block';
-    inputValueText.forEach(item => {
-        item.disabled = false;
-    });
-    periodSelect.value = 1;
-    periodAmout.textContent = '1';
-    for (let i = expensesItems.length - 1; i > 0; i--) {
+            item.value = '';
+        });
+        buttonCancel.style.display = 'none';
+        button.style.display = 'block';
+        inputValueText.forEach(item => {
+            item.disabled = false;
+        });
+        periodSelect.value = 1;
+        periodAmout.textContent = '1';
+        for (let i = expensesItems.length - 1; i > 0; i--) {
             expensesItems[0].parentNode.removeChild(expensesItems[i]);
         }
         for (let i = incomeItems.length - 1; i > 0; i--) {
             incomeItems[0].parentNode.removeChild(incomeItems[i]);
         }
 
-    buttonTagOne.style.display = '';
-    buttonTagTwo.style.display = '';
+        document.querySelectorAll('input[type=text]').forEach(item => {
+            item.value = '';
+        });
 
-    this.incomeMonth = 0;
-    this.percentDeposit =  0;
-    this.moneyDeposit =  0;
-    this.budget =  0;
-    this.budgetMonth =  0;
-    this.expensesMonth =  0;
-    this.periodSelects =  0;
+        buttonTagOne.style.display = '';
+        buttonTagTwo.style.display = '';
+
+        this.budget = 0;
+        this.income = {};
+        this.addIncome = [];
+        this.expenses = {};
+        this.addExpenses = [];
+        this.incomeMonth = 0;
+        this.deposit = false;
+        this.persentDeposite = 0;
+        this.moneyDeposite = 0;
+        this.budgetDay = 0;
+        this.budgetMonth = 0;
+        this.expensesMonth = 0;
+        console.log(this);
+
 };
 
 AppData.prototype.eventListeners = function () {
